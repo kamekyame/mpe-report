@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap');
+
+body {
+  counter-reset: part;
+  font-size: 10.5pt;
+  font-family: 'Noto Serif JP', serif;
+}
+
+
+.markdown-preview.markdown-preview {
+
+  .title,
+  .name,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+
+  .title {
+    font-size: 30pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 1em;
+  }
+
+  .name {
+    font-size: 12pt;
+    text-align: right;
+    margin-bottom: 1em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-size: 12pt;
+    font-weight: bold;
+  }
+
+  h1 {
+    counter-reset: chapter;
+
+    &:before {
+      counter-increment: part;
+      content: counter(part) ". ";
+    }
+  }
+
+  h2 {
+    counter-reset: section;
+
+    &:before {
+      counter-increment: chapter;
+      content: counter(part) "."counter(chapter) ". ";
+    }
+  }
+
+  h3 {
+    counter-reset: sub-section;
+
+    &:before {
+      counter-increment: section;
+      content: counter(part) "."counter(chapter) "."counter(section) ". ";
+    }
+  }
+
+  h4 {
+    counter-reset: sub-sub-section;
+
+    &:before {
+      counter-increment: sub-section;
+      content: counter(part) "."counter(chapter) "."counter(section) "."counter(sub-section) ". ";
+    }
+  }
+
+  h5::before {
+    counter-increment: sub-sub-section;
+    content: counter(part) "."counter(chapter) "."counter(section) "."counter(sub-section) "."counter(sub-sub-section) ". ";
+  }
+
+}
