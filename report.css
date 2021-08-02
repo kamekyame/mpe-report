@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap');
+
+body {
+  counter-reset: part;
+  font-size: 10.5pt !important;
+  font-family: 'Noto Serif JP', serif !important;
+}
+
+.markdown-preview.markdown-preview .title,
+.markdown-preview.markdown-preview .name,
+.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5 {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.markdown-preview.markdown-preview .title {
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 1em;
+}
+
+.markdown-preview.markdown-preview .name {
+  font-size: 10.5pt;
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5 {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.markdown-preview.markdown-preview h1 {
+  counter-reset: chapter;
+}
+
+.markdown-preview.markdown-preview h1:before {
+  counter-increment: part;
+  content: counter(part) ". ";
+}
+
+.markdown-preview.markdown-preview h2 {
+  counter-reset: section;
+}
+
+.markdown-preview.markdown-preview h2:before {
+  counter-increment: chapter;
+  content: counter(part) "."counter(chapter) ". ";
+}
+
+.markdown-preview.markdown-preview h3 {
+  counter-reset: sub-section;
+}
+
+.markdown-preview.markdown-preview h3:before {
+  counter-increment: section;
+  content: counter(part) "."counter(chapter) "."counter(section) ". ";
+}
+
+.markdown-preview.markdown-preview h4 {
+  counter-reset: sub-sub-section;
+}
+
+.markdown-preview.markdown-preview h4:before {
+  counter-increment: sub-section;
+  content: counter(part) "."counter(chapter) "."counter(section) "."counter(sub-section) ". ";
+}
+
+.markdown-preview.markdown-preview h5::before {
+  counter-increment: sub-sub-section;
+  content: counter(part) "."counter(chapter) "."counter(section) "."counter(sub-section) "."counter(sub-sub-section) ". ";
+}
